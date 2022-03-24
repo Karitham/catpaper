@@ -9,17 +9,13 @@
     "solid-scripts": "0.0.61",
     "typescript": "4.6.2"
   },
-  "dependencies": {},
-  "scripts": {
-    "start": "solid-scripts start",
-    "build": "solid-scripts build",
-    "test": "solid-scripts test"
+  "dependencies": {
+    "vite": "^2.8.6",
+    "vite-plugin-solid": "^2.2.6"
   },
-  "browserslist": [
-    "Chrome 74",
-    "Firefox 63",
-    "Safari 11",
-    "Edge 17",
-    "Node 10"
-  ]
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "vite build && npx gh-pages -d dist/"
+  }
 }

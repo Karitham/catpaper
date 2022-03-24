@@ -42,30 +42,34 @@ function App() {
   );
 
   return (
-    <div class="App">
-      <header class="App-header">
-        <Show when={!getContent.loading}>
-          <div
-            style={{
-              display: "grid",
-              "grid-template-columns": "repeat(3, 1fr)",
-              padding:"4rem",
-              gap: "3rem",
-            }}
-          >
-            <For each={content()} fallback={<div>Loading</div>}>
-              {(item) => (
+    <div class="app">
+      <h1 class="title">Catpuccin Wallpapers</h1>
+      <Show when={!getContent.loading}>
+        <div id="grid">
+          <For each={content()} fallback={<div>Loading</div>}>
+            {(item) => (
+              <div class="item-card">
+                <div>
+                  <a class="item-name" href={item.html_url}>
+                    {item.name}
+                  </a>
+                  {" / "}
+                  <span class="item-size">
+                    {(item.size / 1024).toFixed(0)}kb
+                  </span>
+                  {" / "}
+                  <span class="item-sha">{item.sha.slice(0, 7)}</span>
+                </div>
                 <img
                   src={item.download_url}
                   alt={item.name}
                   title={item.name}
-                  width={"100%"}
                 />
-              )}
-            </For>
-          </div>
-        </Show>
-      </header>
+              </div>
+            )}
+          </For>
+        </div>
+      </Show>
     </div>
   );
 }
