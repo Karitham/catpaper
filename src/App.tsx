@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div class="app">
-      <h1 class="title">Catpuccin Wallpapers</h1>
+      <h1 class="title">Catppuccin Wallpapers</h1>
       <Show when={!getContent.loading}>
         <div id="grid">
           <For each={content()} fallback={<div>Loading</div>}>
